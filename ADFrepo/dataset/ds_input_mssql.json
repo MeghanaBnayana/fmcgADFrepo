@@ -1,0 +1,22 @@
+{
+	"name": "ds_input_mssql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer_fmcg_ls",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"database_name": {
+				"type": "string",
+				"defaultValue": "cleverstudies"
+			},
+			"server_name": {
+				"type": "string",
+				"defaultValue": "MBN\\SQLEXPRESS"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	}
+}
