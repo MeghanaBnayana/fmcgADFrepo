@@ -1,0 +1,14 @@
+{
+	"name": "AzureDataLakeStorage1_FMCG_LS",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://fmcgadlsdev.dfs.core.windows.net/"
+		},
+		"connectVia": {
+			"referenceName": "FMCG-IR",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
