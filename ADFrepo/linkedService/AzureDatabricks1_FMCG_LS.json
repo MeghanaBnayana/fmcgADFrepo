@@ -1,0 +1,17 @@
+{
+	"name": "AzureDatabricks1_FMCG_LS",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDatabricks",
+		"typeProperties": {
+			"domain": "https://adb-1982240660738314.14.azuredatabricks.net",
+			"existingClusterId": "1214-074043-ytm6u0gp",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI3ZWRkNTE4Ni01YzczLTQ2YTctODZiNy0zYTdlM2QyMDY2ODYiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "FMCG-IR",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
