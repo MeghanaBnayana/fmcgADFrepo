@@ -1,0 +1,41 @@
+{
+	"name": "ds_output_parquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1_FMCG_LS",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"container_name": {
+				"type": "string"
+			},
+			"adls_file_path": {
+				"type": "string"
+			},
+			"table_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().table_name",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().container_name",
+					"type": "Expression"
+				},
+				"fileSystem": {
+					"value": "@dataset().adls_file_path",
+					"type": "Expression"
+				}
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
