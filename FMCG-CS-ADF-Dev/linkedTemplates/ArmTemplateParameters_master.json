@@ -1,0 +1,48 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "FMCG-CS-ADF-Dev"
+		},
+		"AzureDatabricks1_FMCG_LS_accessToken": {
+			"value": ""
+		},
+		"AzureDatabricksDeltaLake1_FMCG_LS_accessToken": {
+			"value": ""
+		},
+		"Sftp_FMCG_LS_password": {
+			"value": ""
+		},
+		"SqlServer_fmcg_ls_connectionString": {
+			"value": "Integrated Security=True;Data Source=MBN\\SQLEXPRESS;Initial Catalog=cleverstudies"
+		},
+		"SqlServer_fmcg_ls_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_FMCG_LS_properties_typeProperties_url": {
+			"value": "https://fmcgadlsdev.dfs.core.windows.net/"
+		},
+		"AzureDatabricks1_FMCG_LS_properties_typeProperties_existingClusterId": {
+			"value": "1214-074043-ytm6u0gp"
+		},
+		"AzureKeyVault1_FMCG_LS_properties_typeProperties_baseUrl": {
+			"value": "https://fmcgkv.vault.azure.net/"
+		},
+		"Sftp_FMCG_LS_properties_typeProperties_host": {
+			"value": "192.168.1.103"
+		},
+		"Sftp_FMCG_LS_properties_typeProperties_userName": {
+			"value": "meghana_bn@outlook.com"
+		},
+		"SqlServer_fmcg_ls_properties_typeProperties_userName": {
+			"value": "meghana_bn@outlook.com"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
