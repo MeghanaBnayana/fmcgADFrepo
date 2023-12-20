@@ -1,17 +1,42 @@
 {
 	"name": "SqlServer_fmcg_ls",
-	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
+		"parameters": {
+			"sql_server_name": {
+				"type": "string",
+				"defaultValue": "MBN\\SQLEXPRESS"
+			},
+			"sql_db_name": {
+				"type": "string",
+				"defaultValue": "cleverstudies"
+			},
+			"sql_username": {
+				"type": "string",
+				"defaultValue": "meghana_bn@outlook.com"
+			},
+			"sql_pwd_secret": {
+				"type": "string",
+				"defaultValue": "mssqlpwd"
+			}
+		},
 		"annotations": [],
 		"type": "SqlServer",
 		"typeProperties": {
-			"connectionString": "integrated security=True;data source=MBN\\SQLEXPRESS;initial catalog=cleverstudies",
-			"userName": "meghana_bn@outlook.com",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIxNjJjNTM1YS05MTg0LTQ3ZjctYmZkNS02OWFmNTlmYTM1ODEiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"connectionString": "Integrated Security=True;Data Source=@{linkedService().sql_server_name};Initial Catalog=@{linkedService().sql_db_name}",
+			"userName": "@{linkedService().sql_username}",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault1_FMCG_LS",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "mssqlpwd"
+			}
 		},
 		"connectVia": {
 			"referenceName": "FMCG-IR",
 			"type": "IntegrationRuntimeReference"
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/linkedservices"
 }
