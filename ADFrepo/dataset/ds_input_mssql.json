@@ -3,7 +3,25 @@
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "SqlServer_fmcg_ls",
-			"type": "LinkedServiceReference"
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"sql_server_name": {
+					"value": "@dataset().server_name",
+					"type": "Expression"
+				},
+				"sql_db_name": {
+					"value": "@dataset().database_name",
+					"type": "Expression"
+				},
+				"sql_username": {
+					"value": "@dataset().sql_username",
+					"type": "Expression"
+				},
+				"sql_pwd_secret": {
+					"value": "@dataset().sql_pwd_secret",
+					"type": "Expression"
+				}
+			}
 		},
 		"parameters": {
 			"database_name": {
@@ -13,6 +31,14 @@
 			"server_name": {
 				"type": "string",
 				"defaultValue": "MBN\\SQLEXPRESS"
+			},
+			"sql_username": {
+				"type": "string",
+				"defaultValue": "meghana_bn@outlook.com"
+			},
+			"sql_pwd_secret": {
+				"type": "string",
+				"defaultValue": "mssqlpwd"
 			}
 		},
 		"annotations": [],
