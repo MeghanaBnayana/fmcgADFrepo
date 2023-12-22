@@ -1,0 +1,12 @@
+{
+	"name": "FMCG-CS-ADF-Dev",
+	"properties": {
+		"globalParameters": {
+			"env": {
+				"type": "string",
+				"value": "dev"
+			}
+		}
+	},
+	"location": "eastus2"
+}
