@@ -1,5 +1,5 @@
 {
-	"name": "1a_pl_source_mssql_ingestion",
+	"name": "pipelinetest",
 	"properties": {
 		"activities": [
 			{
