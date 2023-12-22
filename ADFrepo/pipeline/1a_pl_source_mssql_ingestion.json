@@ -1,0 +1,41 @@
+{
+	"name": "1a_pl_source_mssql_ingestion",
+	"properties": {
+		"activities": [
+			{
+				"name": "metadata_lookup",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 2,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureDatabricksDeltaLakeSource"
+					},
+					"dataset": {
+						"referenceName": "ds_metadata_adb_deltalake",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			}
+		],
+		"parameters": {
+			"job_id": {
+				"type": "string",
+				"defaultValue": "102"
+			},
+			"metadata_database": {
+				"type": "string",
+				"defaultValue": "metadata_schema"
+			}
+		},
+		"annotations": []
+	}
+}
