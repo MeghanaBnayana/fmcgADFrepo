@@ -26,11 +26,11 @@
 					"type": "Expression"
 				},
 				"folderPath": {
-					"value": "@dataset().container_name",
+					"value": "@dataset().adls_file_path",
 					"type": "Expression"
 				},
 				"fileSystem": {
-					"value": "@dataset().adls_file_path",
+					"value": "@dataset().container_name",
 					"type": "Expression"
 				}
 			},
