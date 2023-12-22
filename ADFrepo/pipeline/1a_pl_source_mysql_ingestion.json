@@ -153,6 +153,9 @@
 								"secureInput": false
 							},
 							"userProperties": [],
+							"typeProperties": {
+								"notebookPath": "/databricks_notebooks/log_record_tbl_insert"
+							},
 							"linkedServiceName": {
 								"referenceName": "AzureDatabricks1_FMCG_LS",
 								"type": "LinkedServiceReference"
