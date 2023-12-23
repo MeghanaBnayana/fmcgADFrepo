@@ -4,11 +4,11 @@
 		"parameters": {
 			"host": {
 				"type": "string",
-				"defaultValue": "192.168.1.103"
+				"defaultValue": "localhost"
 			},
 			"port": {
-				"type": "int",
-				"defaultValue": 22
+				"type": "string",
+				"defaultValue": "22"
 			},
 			"sftp_username": {
 				"type": "string",
@@ -33,10 +33,7 @@
 					"referenceName": "AzureKeyVault1_FMCG_LS",
 					"type": "LinkedServiceReference"
 				},
-				"secretName": {
-					"value": "@linkedService().sftp_secret_name",
-					"type": "Expression"
-				}
+				"secretName": "sftp-pwd"
 			}
 		},
 		"connectVia": {
