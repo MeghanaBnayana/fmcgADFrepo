@@ -294,7 +294,7 @@
 													"type": "Expression"
 												},
 												"status": {
-													"value": "success",
+													"value": "record mismatch",
 													"type": "Expression"
 												},
 												"triggerType": {
