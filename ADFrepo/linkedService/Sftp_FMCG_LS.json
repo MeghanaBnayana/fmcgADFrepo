@@ -4,7 +4,7 @@
 		"parameters": {
 			"host": {
 				"type": "string",
-				"defaultValue": "localhost"
+				"defaultValue": "192.168.1.102"
 			},
 			"port": {
 				"type": "string",
