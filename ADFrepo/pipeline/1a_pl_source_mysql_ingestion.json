@@ -290,7 +290,7 @@
 													"type": "Expression"
 												},
 												"logMessage": {
-													"value": "@concat(string(sub(int(activity('Copy_mssql_to_adls').output.rowsRead),1)), ' records not copied to adls container from table ', item().source_file_or_table_name)",
+													"value": "@concat(string(sub(int(activity('Copy_mssql_to_adls').output.rowsRead),int(activity('Copy_mssql_to_adls').output.rowsCopied))), ' records not copied to adls container from table ',item().source_file_or_table_name)",
 													"type": "Expression"
 												},
 												"status": {
