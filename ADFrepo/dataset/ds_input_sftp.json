@@ -1,0 +1,72 @@
+{
+	"name": "ds_input_sftp",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Sftp_FMCG_LS",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"host": {
+					"value": "@dataset().host",
+					"type": "Expression"
+				},
+				"port": {
+					"value": "@dataset().port",
+					"type": "Expression"
+				},
+				"sftp_username": {
+					"value": "@dataset().username",
+					"type": "Expression"
+				},
+				"sftp_secret_name": {
+					"value": "@dataset().secret_name",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"host": {
+				"type": "string",
+				"defaultValue": "192.168.1.102"
+			},
+			"port": {
+				"type": "string",
+				"defaultValue": "22"
+			},
+			"username": {
+				"type": "string",
+				"defaultValue": "meghana_bn@outlook.com"
+			},
+			"secret_name": {
+				"type": "string",
+				"defaultValue": "sftp-pwd"
+			},
+			"source_file_path": {
+				"type": "string",
+				"defaultValue": "/SFTP"
+			},
+			"file_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "SftpLocation",
+				"fileName": {
+					"value": "@dataset().file_name",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().source_file_path",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
