@@ -1,20 +1,48 @@
 {
 	"name": "Sftp_FMCG_LS",
-	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
+		"parameters": {
+			"host": {
+				"type": "string",
+				"defaultValue": "192.168.1.103"
+			},
+			"port": {
+				"type": "int",
+				"defaultValue": 22
+			},
+			"sftp_username": {
+				"type": "string",
+				"defaultValue": "meghana_bn@outlook.com"
+			},
+			"sftp_secret_name": {
+				"type": "string",
+				"defaultValue": "sftp-pwd"
+			}
+		},
 		"annotations": [],
 		"type": "Sftp",
 		"typeProperties": {
-			"host": "192.168.1.103",
-			"port": 22,
+			"host": "@{linkedService().host}",
+			"port": "@linkedService().port",
 			"skipHostKeyValidation": true,
 			"authenticationType": "Basic",
-			"userName": "meghana_bn@outlook.com",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI0MWU3ODY3NS1kNDU5LTQ5MDQtYmU1NS1hYmVmMzVmNzAzMDQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"userName": "@{linkedService().sftp_username}",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault1_FMCG_LS",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": {
+					"value": "@linkedService().sftp_secret_name",
+					"type": "Expression"
+				}
+			}
 		},
 		"connectVia": {
 			"referenceName": "FMCG-IR",
 			"type": "IntegrationRuntimeReference"
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/linkedservices"
 }
