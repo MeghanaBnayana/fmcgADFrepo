@@ -262,7 +262,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
-									"value": "@equals(activity('Copy_mssql_to_adls').output.rowsRead, activity('Copy_mssql_to_adls').output.rowsCopied)",
+									"value": "@equals(activity('Copy_mssql_to_adls').output.rowsRead, -1)",
 									"type": "Expression"
 								},
 								"ifFalseActivities": [
