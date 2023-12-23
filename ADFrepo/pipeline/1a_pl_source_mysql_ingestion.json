@@ -264,7 +264,59 @@
 								"expression": {
 									"value": "@equals(activity('Copy_mssql_to_adls').output.rowsRead, activity('Copy_mssql_to_adls').output.rowsCopied)",
 									"type": "Expression"
-								}
+								},
+								"ifFalseActivities": [
+									{
+										"name": "record mismatch log",
+										"type": "DatabricksNotebook",
+										"dependsOn": [],
+										"policy": {
+											"timeout": "0.12:00:00",
+											"retry": 2,
+											"retryIntervalInSeconds": 30,
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"notebookPath": "/databricks_notebooks/log_record_tbl_insert",
+											"baseParameters": {
+												"env": {
+													"value": "@pipeline().globalParameters.env",
+													"type": "Expression"
+												},
+												"pipeLineName": {
+													"value": "@pipeline().Pipeline",
+													"type": "Expression"
+												},
+												"logMessage": {
+													"value": "@concat(string(sub(int(activity('Copy_mssql_to_adls').output.rowsRead),int(activity('Copy_mssql_to_adls').output.rowsCopied))), ' records not copied to adls container from table ',item().source_file_or_table_name)",
+													"type": "Expression"
+												},
+												"status": {
+													"value": "success",
+													"type": "Expression"
+												},
+												"triggerType": {
+													"value": "@pipeline().TriggerType",
+													"type": "Expression"
+												},
+												"loadId": {
+													"value": "@pipeline().RunId",
+													"type": "Expression"
+												},
+												"logTimeStamp": {
+													"value": "@formatDateTime(convertFromUtc(utcNow(), 'India Standard Time'), 'yyyy-MM-dd HH:mm:ss')",
+													"type": "Expression"
+												}
+											}
+										},
+										"linkedServiceName": {
+											"referenceName": "AzureDatabricks1_FMCG_LS",
+											"type": "LinkedServiceReference"
+										}
+									}
+								]
 							}
 						}
 					]
